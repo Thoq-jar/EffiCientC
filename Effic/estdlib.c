@@ -14,19 +14,8 @@ int effic_open(const char *pathname, int flags, effic_mode_t mode) {
 }
 
 effic_size_t effic_read(effic_size_t fd, void *buf, effic_size_t count) {
-    if (fd >= sizeof(buffers)/sizeof(char)) {
-        return -1;
-    }
-
-    char *dest = (char *)buf;
-    effic_size_t bytesRead = 0;
-
-    while (bytesRead < count && bytesRead < sizeof(buffers) - fd) {
-        dest[bytesRead] = buffers[fd + bytesRead];
-        bytesRead++;
-    }
-
-    return bytesRead;
+    // TODO: Implement
+    return 0;
 }
 
 effic_size_t effic_write(int fd, const void *buf, effic_size_t count) {
