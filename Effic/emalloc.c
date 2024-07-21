@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2024 - Present Tristan
  *
+ * emalloc.c is a memory allocator for effic
  *
  * EffiCientC is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -13,8 +14,6 @@
  * along with EffiCientC. If not, see <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
  */
 
-#include <stdint.h>
-#include <stdlib.h>
 #include "effic.h"
 
 typedef struct BlockHeader {
@@ -79,10 +78,10 @@ void efree(void* ptr) {
     }
 }
 
-void einit() {
+void einit(void) {
     free_list = (BlockHeader*)sbrk(0);
     if (free_list == (void*) -1) {
-        exit(EXIT_FAILURE);
+        effic_exit(1);
     }
     free_list->size = 1024 * 8;
     free_list->next = NULL;

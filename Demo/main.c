@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2024 - Present Tristan
  *
+ * main.c is a demo file to demonstrate the uses of effic
  *
  * EffiCientC is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -27,7 +28,7 @@ void handle_sigint(int sig) {
         arr = NULL;
     }
     println("\nMemory successfully freed!");
-    exit(0);
+    effic_exit(0);
 }
 
 int main(int argc, char *argv[]) {
@@ -70,7 +71,7 @@ int main(int argc, char *argv[]) {
     signal(SIGINT, handle_sigint);
     while (!interrupted) {
         print("User input > ");
-        ssize_t bytes_read = egetln(input, sizeof(input));
+        effic_size_t bytes_read = egetln(input, sizeof(input));
         if (bytes_read > 0) {
             if (input[bytes_read - 1] == '\n') {
                 input[bytes_read - 1] = '\0';

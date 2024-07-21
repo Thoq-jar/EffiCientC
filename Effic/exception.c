@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2024 - Present Tristan
  *
+ * exception.c handles exceptions in code
  *
  * EffiCientC is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of

@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2024 - Present Tristan
  *
+ * eputs.c is the puts implementation for effic
  *
  * EffiCientC is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -13,7 +14,6 @@
  * along with EffiCientC. If not, see <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
  */
 
-#include <unistd.h>
 #include "effic.h"
 
 void effic_puts(const char *str) {

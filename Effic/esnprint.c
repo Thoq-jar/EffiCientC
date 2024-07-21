@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2024 - Present Tristan
  *
+ * esnprint.c is for printing formatted strings
  *
  * EffiCientC is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -13,7 +14,7 @@
  * along with EffiCientC. If not, see <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
  */
 
-#include "../Effic/effic.h"
+#include "effic.h"
 
 int esnprint(char * str, size_t size,
   const char * format, ...) {
