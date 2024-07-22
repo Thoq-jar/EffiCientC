@@ -8,7 +8,7 @@ It is designed to be faster and more efficient than the standard C library, whil
 - Drop-in replacement for the standard C library
 - Interoperability with existing C code
 - Easy to use and integrate into existing projects
-- Portable and cross-platform (except for Windows, who needs it anyway?)
+- Portable and cross-platform (except for Windows, who needs it anyway?) :sob:
 - Open source and free to use
 
 > Software is like sex; it's better when it's free. - Linus Torvalds
