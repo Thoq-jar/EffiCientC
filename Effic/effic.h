@@ -24,7 +24,6 @@
 #include <unistd.h> // fuck windows
 
 // constants
-#define SIGINT  2
 #define __need___va_list
 #define __need_va_list
 #define __need_va_arg
