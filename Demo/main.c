@@ -16,7 +16,8 @@
 
 #include "../Effic/effic.h"
 
-#define MAX_INPUT_LENGTH 1000
+#define MAX_INPUT_LENGTH memBytes * 2
+const int memBytes = 100000;
 
 volatile sig_atomic_t interrupted = 0;
 int *arr = NULL;
@@ -26,47 +27,41 @@ void handle_sigint(int sig) {
     if (arr != NULL) {
         efree(arr);
         arr = NULL;
+        if (arr == NULL) {
+            println("\nMemory successfully freed!");
+        } else {
+            eFreeException();
+        }
     }
-    println("\nMemory successfully freed!");
     effic_exit(0);
 }
 
 int main(int argc, char *argv[]) {
     char input[MAX_INPUT_LENGTH];
-    const int numInts = 1000;
-    arr = (int *)emalloc(sizeof(int) * numInts);
     bool memoryFreed = false;
-
+    arr = (int *)emalloc(sizeof(int) * memBytes);
     if (arr == NULL) {
-        eMallocException();
-        return 1;
+        arr = (int *)emalloc(sizeof(int) * memBytes);
     }
-
-    for (int i = 0; i < numInts; ++i) {
-        arr[i] = i + 1;
+    for (int i = 0; i < memBytes; ++i) {
+        arr[i] = i;
     }
-
-    const size_t totalSizeBytes = sizeof(int) * numInts;
-    const double totalSizeMB = (double)totalSizeBytes / (1024.0 * 1024.0);
 
     println("Memory successfully allocated!");
-
-    for (int i = 0; i < 10; ++i) {
+    /*
+    println("Memory array:");
+    for (int i = 0; i < memBytes; ++i) {
         print("%d ", arr[i]);
     }
     print("\n");
-
-    char sizeBuffer[20];
-    esnprint(sizeBuffer, sizeof(sizeBuffer), "%.2f", totalSizeMB);
-    print("Total size: %s MB\n", sizeBuffer);
-
-    println("\nInput string:");
+    */
+    print("\nInput string: ");
     for (int i = 1; i < argc; ++i) {
         println("%s", argv[i]);
     }
 
     println("Type something and press Enter (max %d characters): ", MAX_INPUT_LENGTH - 1);
-    println("Type 'quit' to exit.");
+    println("Type 'quit' or press CTRL+C to exit.");
     print("\n");
     signal(SIGINT, handle_sigint);
     while (!interrupted) {
@@ -77,8 +72,7 @@ int main(int argc, char *argv[]) {
                 input[bytes_read - 1] = '\0';
             }
             print("EffiCientC I/O> ");
-            switch (estrcmp(input, "quit")) {
-            case 0:
+            if (!estrcmp(input, "quit")) {
                 println("Exiting...");
                 efree(arr);
                 memoryFreed = true;
@@ -88,14 +82,11 @@ int main(int argc, char *argv[]) {
                     println("Memory successfully freed!");
                 }
                 println("Goodbye!");
-                return 0;
-            default:
-                print("You entered: ", 11);
-                println(input, bytes_read);
-                continue;
+                effic_exit(0);
+            } else {
+                println("You typed: %s", input);
             }
         }
     }
-
     return 0;
 }

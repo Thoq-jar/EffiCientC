@@ -12,16 +12,18 @@
  *
  * You should have received a copy of the Thoq License
  * along with EffiCientC. If not, see <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
- */
+*/
+
+// hedder guard
+#ifndef EFFIC_H
+#define EFFIC_H
 
 // imports
 #include <sys/syscall.h>
+#include <signal.h>
 #include <unistd.h>
-#include <sys/signal.h>
 
 // constants
-#ifndef EFFIC_H
-#define EFFIC_H
 #define SIGINT  2
 #define __need___va_list
 #define __need_va_list
@@ -67,6 +69,19 @@
     #include_next <stdbool.h>
 #endif
 
+// exit calls
+#ifndef SYS_exit
+    #define SYS_exit 0
+#endif
+
+// exit
+#ifdef __APPLE__
+    #define SYS_exit 1
+#else
+    #undef SYS_exit
+    #include <stdlib.h>
+#endif
+
 // functions:
 void effic_putchar(char c);
 void effic_puts(const char *str);
@@ -88,7 +103,9 @@ int estrcmp(const char *s1, const char *s2);
 void* emalloc(size_t size);
 void efree(void* ptr);
 
-// effic_unistd:
+// effic_unistd / stdlib:
+void printHex(int val);
+int effic_rand(void);
 int effic_close(int fd);
 int effic_open(const char *pathname, int flags, effic_mode_t mode);
 int effic_execve(const char *pathname, char *const argv[], char *const envp[]);
