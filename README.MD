@@ -5,7 +5,7 @@ It is designed to be faster and more efficient than the standard C library, whil
 
 ## Features
 - Faster and more efficient than the standard C library
-- Drop-in replacement for the standard C library
+- Drop-in replacement for the standard C library (in most cases)
 - Interoperability with existing C code
 - Easy to use and integrate into existing projects
 - Portable and cross-platform (except for Windows, who needs it anyway?) :sob:
