@@ -1,7 +1,7 @@
 /*
  * This file is part of EffiCientC (https://github.com/Thoq-jar/EffiCientC)
  *
- * Copyright (c) 2024 - Present Tristan
+ * Copyright (c) 2024 - Present EffiCientC
  *
  * main.c is a demo file to demonstrate the uses of effic
  *
@@ -66,6 +66,7 @@ int main(int argc, char *argv[]) {
     signal(SIGINT, handle_sigint);
     while (!interrupted) {
         print("User input > ");
+        // Read a line from the user, fuck scanf dont you dare make a pull request for that
         effic_size_t bytes_read = egetln(input, sizeof(input));
         if (bytes_read > 0) {
             if (input[bytes_read - 1] == '\n') {
@@ -77,7 +78,7 @@ int main(int argc, char *argv[]) {
                 efree(arr);
                 memoryFreed = true;
                 if (!memoryFreed) {
-                    eFreeException();
+                    eFreeException(); // death
                 } else {
                     println("Memory successfully freed!");
                 }

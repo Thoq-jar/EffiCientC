@@ -1,7 +1,7 @@
 /*
  * This file is part of EffiCientC (https://github.com/Thoq-jar/EffiCientC)
  *
- * Copyright (c) 2024 - Present Tristan
+ * Copyright (c) 2024 - Present EffiCientC
  *
  * egetln.c is an input handler for effic
  *

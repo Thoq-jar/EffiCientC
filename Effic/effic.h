@@ -1,7 +1,7 @@
 /*
  * This file is part of EffiCientC (https://github.com/Thoq-jar/EffiCientC)
  *
- * Copyright (c) 2024 - Present Tristan
+ * Copyright (c) 2024 - Present EffiCientC
  *
  * effic.h is the header file to tie it all together
  *
@@ -19,9 +19,9 @@
 #define EFFIC_H
 
 // imports
-#include <sys/syscall.h>
-#include <signal.h>
-#include <unistd.h>
+#include <signal.h> // it works
+#include <sys/syscall.h> // i hope this isnt just a macOS thing
+#include <unistd.h> // fuck windows
 
 // constants
 #define SIGINT  2
@@ -67,19 +67,6 @@
 // booleans
 #if __has_include_next(<stdbool.h>)
     #include_next <stdbool.h>
-#endif
-
-// exit calls
-#ifndef SYS_exit
-    #define SYS_exit 0
-#endif
-
-// exit
-#ifdef __APPLE__
-    #define SYS_exit 1
-#else
-    #undef SYS_exit
-    #include <stdlib.h>
 #endif
 
 // functions:
