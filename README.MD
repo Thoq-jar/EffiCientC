@@ -1,7 +1,8 @@
 # EffiCientC
 EffiCientC is a faster std lib for the C language that is designed to be a drop-in replacement for the standard C library.
 It is designed to be faster and more efficient than the standard C library, while still being compatible with existing C code.
-
+**TO BE CLEAR: The License only applies to using the code for your own library, you may use the library in a project without abiding by the License, 
+you may use it for profit but the code the library consists of falls under the License, to learn more click [here](https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License)
 
 ## Features
 - Faster and more efficient than the standard C library
