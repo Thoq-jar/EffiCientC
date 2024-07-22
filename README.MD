@@ -17,4 +17,5 @@ It is designed to be faster and more efficient than the standard C library, whil
 
 ## Installation
 To install EffiCientC, simply clone the repository and include the `effic.h` header file in your project.
-Installer coming soon:tm:
+
+Installer coming soon™
