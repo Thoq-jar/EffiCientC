@@ -43,7 +43,6 @@
      effic_exit(0);
  }
 
- // parse the user input and return the corresponding enum value
  enum Commands parse_command(const char *input) {
      if (estrcmp(input, "quit") == 0) {
          return CMD_QUIT;
@@ -86,17 +85,15 @@
              }
              print("EffiCientC I/O> ");
 
-             // Parse the input to get the command enum value
              enum Commands cmd = parse_command(input);
 
-             // Use a switch statement to handle the command
              switch (cmd) {
                  case CMD_QUIT:
                      println("Exiting...");
                      efree(arr);
                      memoryFreed = true;
                      if (!memoryFreed) {
-                         eFreeException(); // Handle exception
+                         eFreeException();
                      } else {
                          println("Memory successfully freed!");
                      }
