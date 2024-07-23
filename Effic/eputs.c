@@ -11,14 +11,15 @@
  * Thoq License for more details.
  *
  * You should have received a copy of the Thoq License
- * along with EffiCientC. If not, see <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
+ * along with EffiCientC. If not, see
+ * <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
  */
 
 #include "effic.h"
 
 void effic_puts(const char *str) {
-    size_t len = effic_strlen(str);
-    for (size_t i = 0; i < len; i++) {
-        effic_putchar(str[i]);
-    }
+  size_t len = effic_strlen(str);
+  for (size_t i = 0; i < len; i++) {
+    effic_putchar(str[i]);
+  }
 }

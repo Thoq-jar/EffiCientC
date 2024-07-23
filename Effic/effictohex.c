@@ -11,29 +11,30 @@
  * Thoq License for more details.
  *
  * You should have received a copy of the Thoq License
- * along with EffiCientC. If not, see <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
-*/
+ * along with EffiCientC. If not, see
+ * <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
+ */
 
 #include "effic.h"
 
 void printHex(int val) {
-    char hex_val[33];
-    int idx = 0;
-    do {
-        int rem = val % 16;
-        if (rem < 10) {
-            hex_val[idx++] = '0' + rem;
-        } else {
-            hex_val[idx++] = 'A' + rem - 10;
-        }
-        val /= 16;
-    } while (val > 0);
-
-    hex_val[idx] = '\0';
-
-    print("0x");
-
-    for (int j = 0; j < idx; ++j) {
-        print("%d ", hex_val[j]);
+  char hex_val[33];
+  int idx = 0;
+  do {
+    int rem = val % 16;
+    if (rem < 10) {
+      hex_val[idx++] = '0' + rem;
+    } else {
+      hex_val[idx++] = 'A' + rem - 10;
     }
+    val /= 16;
+  } while (val > 0);
+
+  hex_val[idx] = '\0';
+
+  print("0x");
+
+  for (int j = 0; j < idx; ++j) {
+    print("%d ", hex_val[j]);
+  }
 }

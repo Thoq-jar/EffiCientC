@@ -13,7 +13,8 @@
  * Thoq License for more details.
  *
  * You should have received a copy of the Thoq License
- * along with EffiCientC. If not, see <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
+ * along with EffiCientC. If not, see
+ * <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
  */
 
 #include "effic.h"
@@ -23,37 +24,31 @@ int current_fd = 0;
 
 void effic_exit(int status);
 void effic_exit(int status) {
-    syscall(SYS_exit, status); // its depricated but i dont care //
+  syscall(SYS_exit, status);  // its depricated but i dont care //
 }
 
 int effic_open(const char *pathname, int flags, effic_mode_t mode) {
-    return open(pathname, flags, mode);
+  return open(pathname, flags, mode);
 }
 
 effic_size_t effic_read(effic_size_t fd, void *buf, effic_size_t count) {
-    return read(fd, buf, count);
+  return read(fd, buf, count);
 }
 
 effic_size_t effic_write(int fd, const void *buf, effic_size_t count) {
-    return write(fd, buf, count);
+  return write(fd, buf, count);
 }
 
-int effic_close(int fd) {
-    return close(fd);
-}
+int effic_close(int fd) { return close(fd); }
 
 effic_off_t effic_lseek(int fd, effic_off_t offset, int whence) {
-    return lseek(fd, offset, whence);
+  return lseek(fd, offset, whence);
 }
 
-pid_t effic_fork(void) {
-    return fork();
-}
+pid_t effic_fork(void) { return fork(); }
 
-pid_t effic_getpid(void) {
-    return getpid();
-}
+pid_t effic_getpid(void) { return getpid(); }
 
 int effic_execve(const char *pathname, char *const argv[], char *const envp[]) {
-    return execve(pathname, argv, envp);
+  return execve(pathname, argv, envp);
 }

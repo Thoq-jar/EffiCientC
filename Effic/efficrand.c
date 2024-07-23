@@ -3,7 +3,8 @@
  *
  * Copyright (c) 2024 - Present EffiCientC
  *
- * efficrand.c is the rand implementation for effic, thats it, nothing more nothing less lol
+ * efficrand.c is the rand implementation for effic, thats it, nothing more
+ * nothing less lol
  *
  * EffiCientC is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -11,33 +12,33 @@
  * Thoq License for more details.
  *
  * You should have received a copy of the Thoq License
- * along with EffiCientC. If not, see <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
-*/
+ * along with EffiCientC. If not, see
+ * <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
+ */
 
 #include "effic.h"
 
-#define RAND_MAX 2147483647  // modulus
-#define MULTIPLIER 48271     // multiplier
-
-unsigned long seed = 1; // init seeds
+float MULTIPLIER = 48271;                       // multiplier
+float RAND_MAX = 2147483647;                    // modulus
+float seed = sizeof(int) * 245896789457.45543;  // init seed
 
 int effic_rand(void) {
-    bool memoryFreed = false;
-    int *arr = (int *) emalloc(sizeof(int) * 10);
-    static int counter = 0;
-    const int resetInterval = 100;
-    const int maxCounterValue = 10000;
+  bool memoryFreed = false;
+  float *arr = (float *)emalloc(sizeof(float) * 10);
+  static int counter = 0;
+  const int resetInterval = 3;
+  const int maxCounterValue = 10000;
+  seed = (MULTIPLIER * seed) * RAND_MAX / *arr;
+  counter++;
 
-    counter++;
+  if (counter >= resetInterval) {
+    counter = 0;
+  }
 
-    if (counter >= resetInterval) {
-         counter = 0;
-    }
+  effic_time_t currentTime = time(NULL);
+  int randomNumber = currentTime + counter % maxCounterValue;
 
-    effic_time_t currentTime = time(NULL);
-    int randomNumber = currentTime + counter % maxCounterValue;
-
-    randomNumber %= 500;
-    return randomNumber;
-    efree(arr);
+  randomNumber %= 500;
+  return randomNumber;
+  efree(arr);
 }

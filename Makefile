@@ -13,9 +13,9 @@
  # Thoq License for more details.
  #
  # You should have received a copy of the Thoq License
- # along with EffiCientC. If not, see <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
+ # along with EffiCientC. If not, see
+ # <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
 #
-
 
 # I use clang and you will too
 CC = clang

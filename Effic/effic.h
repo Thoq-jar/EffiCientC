@@ -11,19 +11,20 @@
  * Thoq License for more details.
  *
  * You should have received a copy of the Thoq License
- * along with EffiCientC. If not, see <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
-*/
+ * along with EffiCientC. If not, see
+ * <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
+ */
 
 // hedder guard
 #ifndef EFFIC_H
 #define EFFIC_H
 
 // imports
-#include <signal.h> // it works
-#include <sys/syscall.h> // i hope this isnt just a macOS thing
-#include <unistd.h> // fuck windows
+#include <signal.h>  // it works
 #include <sys/fcntl.h>
+#include <sys/syscall.h>  // i hope this isnt just a macOS thing
 #include <time.h>
+#include <unistd.h>  // fuck windows
 
 // constants
 #define __need___va_list
@@ -31,52 +32,52 @@
 #define __need_va_arg
 #define __need___va_copy
 #define __need_va_copy
-#define	 EFFIC_STDIN_FILENO	0
-#define	EFFIC_STDOUT_FILENO	1
-#define	EFFIC_STDERR_FILENO	2
+#define EFFIC_STDIN_FILENO 0
+#define EFFIC_STDOUT_FILENO 1
+#define EFFIC_STDERR_FILENO 2
 
 // macros
 #if !defined(_LIBCPP_HAS_NO_PRAGMA_SYSTEM_HEADER)
-    #pragma GCC system_header
+#pragma GCC system_header
 #endif
 
 // null def
 #ifndef NULL
-    #define NULL ((void *)0)
+#define NULL ((void *)0)
 #endif
 
 // size_t
 #ifndef _Effic_SIZE_T_DEFINED
-    #define _Effic_SIZE_T_DEFINED
-    typedef unsigned long effic_size_t;
+#define _Effic_SIZE_T_DEFINED
+typedef unsigned long effic_size_t;
 #endif
 
 // off_t
 #ifndef _Effic_OFF_T_DEFINED
-    #define _Effic_OFF_T_DEFINED
-    typedef long effic_off_t;
+#define _Effic_OFF_T_DEFINED
+typedef long effic_off_t;
 #endif
 
 // effic_stdarg
 #ifndef __STDARG_H
-    #define __STDARG_H
+#define __STDARG_H
 #endif
 
 // mode_t
 #ifndef _Effic_MODE_T_DEFINED
-    #define _Effic_MODE_T_DEFINED
-    typedef unsigned int effic_mode_t;
+#define _Effic_MODE_T_DEFINED
+typedef unsigned int effic_mode_t;
 #endif
 
 // time_t
 #ifndef _Effic_TIME_T_DEFINED
-    #define _Effic_TIME_T_DEFINED
-    typedef unsigned int effic_time_t;
+#define _Effic_TIME_T_DEFINED
+typedef unsigned int effic_time_t;
 #endif
 
 // booleans
 #if __has_include_next(<stdbool.h>)
-    #include_next <stdbool.h>
+#include_next <stdbool.h>
 #endif
 
 // functions:
@@ -97,8 +98,8 @@ effic_size_t egetln(char *buffer, size_t max_length);
 int estrcmp(const char *s1, const char *s2);
 
 // emalloc / mem functions:
-void* emalloc(size_t size);
-void efree(void* ptr);
+void *emalloc(size_t size);
+void efree(void *ptr);
 
 // effic_unistd / stdlib:
 void printHex(int val);
@@ -114,9 +115,9 @@ pid_t effic_getpid(void);
 pid_t effic_wait(int *status);
 
 // system functions:
-int	syscall(int, ...);
+int syscall(int, ...);
 void *sbrk(int);
-int	siginterrupt(int, int);
+int siginterrupt(int, int);
 
 // exceptions:
 int genericException();
@@ -125,28 +126,28 @@ int eFreeException();
 
 // arg definitions
 #ifdef __need___va_list
-    #include <__stdarg___gnuc_va_list.h>
-    #undef __need___va_list
+#include <__stdarg___gnuc_va_list.h>
+#undef __need___va_list
 #endif
 
 #ifdef __need_va_list
-    #include <__stdarg_va_list.h>
-    #undef __need_va_list
+#include <__stdarg_va_list.h>
+#undef __need_va_list
 #endif
 
 #ifdef __need_va_arg
-    #include <__stdarg_va_arg.h>
-    #undef __need_va_arg
+#include <__stdarg_va_arg.h>
+#undef __need_va_arg
 #endif
 
 #ifdef __need___va_copy
-    #include <__stdarg___va_copy.h>
-    #undef __need___va_copy
+#include <__stdarg___va_copy.h>
+#undef __need___va_copy
 #endif
 
 #ifdef __need_va_copy
-    #include <__stdarg_va_copy.h>
-    #undef __need_va_copy
+#include <__stdarg_va_copy.h>
+#undef __need_va_copy
 #endif
 
-#endif // EFFIC_H
+#endif  // EFFIC_H

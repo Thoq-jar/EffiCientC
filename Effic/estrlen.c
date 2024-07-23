@@ -11,16 +11,17 @@
  * Thoq License for more details.
  *
  * You should have received a copy of the Thoq License
- * along with EffiCientC. If not, see <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
+ * along with EffiCientC. If not, see
+ * <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
  */
 
 #include "effic.h"
 
 size_t effic_strlen(const char *str) {
-    size_t len = 0;
-    while (*str != '\0') {
-        len++;
-        str++;
-    }
-    return len;
+  size_t len = 0;
+  while (*str != '\0') {
+    len++;
+    str++;
+  }
+  return len;
 }

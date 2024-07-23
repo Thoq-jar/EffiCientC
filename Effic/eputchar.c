@@ -11,11 +11,12 @@
  * Thoq License for more details.
  *
  * You should have received a copy of the Thoq License
- * along with EffiCientC. If not, see <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
+ * along with EffiCientC. If not, see
+ * <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
  */
 
 #include "effic.h"
 
 void effic_putchar(char c) {
-    effic_write(1, &c, 1); // using POSIX write system call
+  effic_write(1, &c, 1);  // using POSIX write system call
 }
