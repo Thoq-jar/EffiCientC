@@ -22,6 +22,8 @@
 #include <signal.h> // it works
 #include <sys/syscall.h> // i hope this isnt just a macOS thing
 #include <unistd.h> // fuck windows
+#include <sys/fcntl.h>
+#include <time.h>
 
 // constants
 #define __need___va_list
@@ -29,6 +31,9 @@
 #define __need_va_arg
 #define __need___va_copy
 #define __need_va_copy
+#define	 EFFIC_STDIN_FILENO	0
+#define	EFFIC_STDOUT_FILENO	1
+#define	EFFIC_STDERR_FILENO	2
 
 // macros
 #if !defined(_LIBCPP_HAS_NO_PRAGMA_SYSTEM_HEADER)
@@ -61,6 +66,12 @@
 #ifndef _Effic_MODE_T_DEFINED
     #define _Effic_MODE_T_DEFINED
     typedef unsigned int effic_mode_t;
+#endif
+
+// time_t
+#ifndef _Effic_TIME_T_DEFINED
+    #define _Effic_TIME_T_DEFINED
+    typedef unsigned int effic_time_t;
 #endif
 
 // booleans

@@ -17,5 +17,5 @@
 #include "effic.h"
 
 void effic_putchar(char c) {
-    write(1, &c, 1); // using POSIX write system call
+    effic_write(1, &c, 1); // using POSIX write system call
 }

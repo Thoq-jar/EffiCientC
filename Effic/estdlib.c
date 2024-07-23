@@ -5,6 +5,7 @@
  *
  * estdlib.c is designed to implement the standard library
  * functions for effic like stdlib.h does but I need to do a lot of shit
+ * NOTE: each function based on POSIX system calls
  *
  * EffiCientC is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -22,51 +23,37 @@ int current_fd = 0;
 
 void effic_exit(int status);
 void effic_exit(int status) {
-    // its depricated but i dont care
-    syscall(SYS_exit, status);
+    syscall(SYS_exit, status); // its depricated but i dont care //
 }
 
 int effic_open(const char *pathname, int flags, effic_mode_t mode) {
-    // TODO: Implement
-    return 0;
+    return open(pathname, flags, mode);
 }
 
 effic_size_t effic_read(effic_size_t fd, void *buf, effic_size_t count) {
-    // TODO: Implement
-    return 0;
+    return read(fd, buf, count);
 }
 
 effic_size_t effic_write(int fd, const void *buf, effic_size_t count) {
-    // TODO: Implement
-    return 0;
+    return write(fd, buf, count);
 }
 
 int effic_close(int fd) {
-    // TODO: Implement
-    return 0;
+    return close(fd);
 }
 
 effic_off_t effic_lseek(int fd, effic_off_t offset, int whence) {
-    // TODO: Implement
-    return 0;
+    return lseek(fd, offset, whence);
 }
 
 pid_t effic_fork(void) {
-    // TODO: Implement
-    return 0;
+    return fork();
 }
 
 pid_t effic_getpid(void) {
-    // TODO: Implement
-    return 0;
-}
-
-pid_t effic_wait(int *status) {
-    // TODO: Implement
-    return 0;
+    return getpid();
 }
 
 int effic_execve(const char *pathname, char *const argv[], char *const envp[]) {
-    // TODO: Implement
-    return 0;
+    return execve(pathname, argv, envp);
 }

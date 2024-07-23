@@ -23,7 +23,8 @@
      CMD_QUIT,
      CMD_MEMVIEW,
      CMD_HELP,
-     CMD_UNKNOWN
+     CMD_UNKNOWN,
+     CMD_RAND
  };
 
  volatile sig_atomic_t interrupted = 0;
@@ -50,6 +51,8 @@
          return CMD_MEMVIEW;
      } else if (estrcmp(input, "help") == 0) {
          return CMD_HELP;
+     } else if (estrcmp(input, "rand") == 0) {
+            return CMD_RAND;
      } else {
          return CMD_UNKNOWN;
      }
@@ -71,9 +74,9 @@
      for (int i = 1; i < argc; ++i) {
          println("%s", argv[i]);
      }
-
+     println("Random number: %d", effic_rand());
      println("Type something and press Enter (max %d characters): ", MAX_INPUT_LENGTH - 1);
-     println("Type 'quit' or press CTRL+C to exit.");
+     println("Type 'help'  for a list of comamnds.");
      print("\n");
      signal(SIGINT, handle_sigint);
      while (!interrupted) {
@@ -83,45 +86,48 @@
              if (input[bytes_read - 1] == '\n') {
                  input[bytes_read - 1] = '\0';
              }
-             print("EffiCientC I/O> ");
-
              enum Commands cmd = parse_command(input);
-
              switch (cmd) {
-                 case CMD_QUIT:
+                 case CMD_QUIT: {
                      println("Exiting...");
                      efree(arr);
                      memoryFreed = true;
                      if (!memoryFreed) {
                          eFreeException();
+                         effic_exit(1);
                      } else {
                          println("Memory successfully freed!");
                      }
                      println("Goodbye!");
                      effic_exit(0);
                      break;
-
-                 case CMD_MEMVIEW:
+                 }
+                 case CMD_MEMVIEW: {
                      println("Memory array:");
                      for (int i = 0; i < memBytes; ++i) {
                          print("%d ", arr[i]);
                      }
                      print("\n");
                      break;
-
-                 case CMD_HELP:
-                     println("Commands: ");
-                     println("quit - Quits the program");
+                 }
+                 case CMD_HELP: {
+                     println("\nCommands: ");
+                     println("quit - Quits the program - You can also use Ctrl+C to quit");
                      println("memview - Displays the memory array");
+                     println("rand - Displays a random number");
                      println("help - Displays this message");
                      break;
-
-                 case CMD_UNKNOWN:
+                }
+                case CMD_RAND: {
+                    println("Random number: %d", effic_rand());
+                    break;
+                 }
+                 case CMD_UNKNOWN: {
                  default:
-                     println("You typed: %s", input);
+                     println("EffiCientC I/O> You typed: %s", input);
                      break;
+                 }
              }
          }
      }
-     return 0;
  }

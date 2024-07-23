@@ -21,7 +21,7 @@
      char ch;
 
      while (i < max_length - 1) {
-         if (read(STDIN_FILENO, &ch, 1) < 1) {
+         if (effic_read(EFFIC_STDIN_FILENO, &ch, 1) < 1) {
              break;
          }
          buffer[i++] = ch;
