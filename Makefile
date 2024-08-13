@@ -17,7 +17,7 @@
  # <https://raw.githubusercontent.com/Thoq-jar/Thoq-License/main/License>.
 #
 
-# I use clang and you will too
+# I use clang and you will too ;)
 CC = clang
 
 # C flags

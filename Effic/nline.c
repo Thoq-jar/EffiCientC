@@ -3,7 +3,8 @@
  *
  * Copyright (c) 2024 - Present EffiCientC
  *
- * eputchar.c is the putchar implementation for effic
+ * efficrand.c is the rand implementation for effic, thats it, nothing more
+ * nothing less lol
  *
  * EffiCientC is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -17,6 +18,6 @@
 
 #include "effic.h"
 
-void effic_putchar(char c) {
-  effic_write(1, &c, 1); // using POSIX write system call
+void nline() {
+  effic_putchar('\n');
 }

@@ -24,7 +24,7 @@ int current_fd = 0;
 
 void effic_exit(int status);
 void effic_exit(int status) {
-  syscall(SYS_exit, status);  // its depricated but i dont care //
+  syscall(SYS_exit, status); // its depricated but i dont care //
 }
 
 int effic_open(const char *pathname, int flags, effic_mode_t mode) {

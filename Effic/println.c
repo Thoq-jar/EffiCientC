@@ -25,40 +25,40 @@ void println(const char *format, ...) {
   while (*arg != '\0') {
     if (*arg == '%' && *(arg + 1) != '\0') {
       switch (*(arg + 1)) {
-        case 's': {
-          const char *str = va_arg(args, const char *);
-          effic_puts(str);
-          break;
-        }
-        case 'd': {
-          int num = va_arg(args, int);
-          char buffer[20];
-          int length = 0;
-          if (num == 0) {
-            effic_putchar('0');
-          } else {
-            int is_negative = 0;
-            if (num < 0) {
-              is_negative = 1;
-              num = -num;
-            }
-            while (num != 0) {
-              buffer[length++] = num % 10 + '0';
-              num = num / 10;
-            }
-            if (is_negative) {
-              effic_putchar('-');
-            }
-            for (int i = length - 1; i >= 0; i--) {
-              effic_putchar(buffer[i]);
-            }
+      case 's': {
+        const char *str = va_arg(args, const char *);
+        effic_puts(str);
+        break;
+      }
+      case 'd': {
+        int num = va_arg(args, int);
+        char buffer[20];
+        int length = 0;
+        if (num == 0) {
+          effic_putchar('0');
+        } else {
+          int is_negative = 0;
+          if (num < 0) {
+            is_negative = 1;
+            num = -num;
           }
-          break;
+          while (num != 0) {
+            buffer[length++] = num % 10 + '0';
+            num = num / 10;
+          }
+          if (is_negative) {
+            effic_putchar('-');
+          }
+          for (int i = length - 1; i >= 0; i--) {
+            effic_putchar(buffer[i]);
+          }
         }
-        default:
-          effic_putchar(*arg);
-          effic_putchar(*(arg + 1));
-          break;
+        break;
+      }
+      default:
+        effic_putchar(*arg);
+        effic_putchar(*(arg + 1));
+        break;
       }
       arg += 2;
     } else {

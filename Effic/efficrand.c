@@ -19,7 +19,7 @@
 #include "effic.h"
 
 float MULTIPLIER = 48271;                       // multiplier
-float RAND_MAX = 2147483647;                    // modulus
+int RAND_MAX = 2147483647;                    // modulus
 float seed = sizeof(int) * 245896789457.45543;  // init seed
 
 int effic_rand(void) {

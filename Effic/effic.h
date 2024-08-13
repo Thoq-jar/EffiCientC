@@ -20,11 +20,11 @@
 #define EFFIC_H
 
 // imports
-#include <signal.h>  // it works
+#include <signal.h> // it works
 #include <sys/fcntl.h>
-#include <sys/syscall.h>  // i hope this isnt just a macOS thing
+#include <sys/syscall.h> // i hope this isnt just a macOS thing
 #include <time.h>
-#include <unistd.h>  // fuck windows
+#include <unistd.h> // fuck windows
 
 // constants
 #define __need___va_list
@@ -91,6 +91,7 @@ void effic_exit(int status);
 // I/O functions:
 void print(const char *format, ...);
 void println(const char *format, ...);
+void nline();
 int esnprint(char *str, size_t size, const char *format, ...);
 effic_size_t egetln(char *buffer, size_t max_length);
 
@@ -150,4 +151,4 @@ int eFreeException();
 #undef __need_va_copy
 #endif
 
-#endif  // EFFIC_H
+#endif // EFFIC_H
